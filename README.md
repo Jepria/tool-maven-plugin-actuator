@@ -1,20 +1,10 @@
-# tool-maven-plugin-appinstall
+# tool-maven-plugin-actuator
 Maven plugin for collecting information about the assembly of the application
 
 # Особенности на текущий момент:
 - Работает с приложениями из `SVN` репозитория. При работе с Git некоторая информация о версии приложения не будет собрана.
 - Допускает использование как для прежней структуры приложения (с интерфейсом только на GWT), так и для современной структуры (GWT + React + service-rest).
 - Реализован автоматический сбор информации об используемых библиотеках (возможно потребует согласования/корректировки).
-
-
-```
-c:\work\workspace\JepRiaShowcase\Tag\10.11.0\App\
-```
-- Подпапка `Doc` проекта должна содержать файл `map.xml` с описанием `DB` структуры. Например:
-```
-c:\work\workspace\JepRiaShowcase\Tag\10.11.0\Doc\map.xml
-```
-- Предварительно на целевом экземпляре `Tomcat` необходимо развернуть приложение `ModuleInfo`.
 
 # Использование в тестовом режиме (прямой запуск плагина):
 - Разместить в подпапке `App` вспомогательный `pom.xml` с настройками плагина `actuator-maven-plugin` или добавить настройки плагина в уже имеющийся `pom.xml` проекта. Примерное содержание `pom.xml`:
@@ -102,7 +92,7 @@ c:\work\workspace\JepRiaShowcase\Tag\10.11.0\Doc\map.xml
 ```
 - Воспользоваться командой `actuator:appsign` для генерации `actuator/version.json`.
 
-# Использование в рамках дочернего проекта webapp, отвечающего за сборку общего артефакта приложения с новой структурой (GWT + React + service-rest):
+# Использование в рамках дочернего проекта webapp:
 - Скорректировать `pom.xml` модуля `webapp` следующим образом:
 ```
       ...
@@ -120,9 +110,7 @@ c:\work\workspace\JepRiaShowcase\Tag\10.11.0\Doc\map.xml
                 <exclude>actuator/*</exclude>
               </excludes>
             </resource>
-            
             ...
-            
             <!-- actuator -->
             <resource>
               <directory>${project.build.directory}/actuator</directory>
