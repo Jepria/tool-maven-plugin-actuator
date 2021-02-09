@@ -82,7 +82,6 @@ Maven plugin for collecting information about the assembly of the application
         <version>1.0.0-SNAPSHOT</version>
         <inherited>false</inherited>
         <configuration>
-          <buildConfig>debug</buildConfig>
           <jsonFilePath>actuator/version.json</jsonFilePath>
         </configuration>
       </plugin>
@@ -148,7 +147,7 @@ Maven plugin for collecting information about the assembly of the application
 - ИЛИ воспользоваться командой `mvn clean package` от `pom.xml` модуля `webapp` (предварительно должны быть собраны модули `client-react`, `gwt` и `service-rest`).
 
 # Параметры плагина `actuator-maven-plugin`:
-- `buildConfig` -- тип сборки (обязательный);
+- `buildConfig` -- тип сборки (не обязательный, дефолтное значение: `debug`);
 - `libraryVersion` -- список используемых библиотек (не обязательный);
 - `projectName` -- наименование общего проекта в SVN, например, "Jep" (не обязательный);
 - `moduleName` -- наименование приложения, например, "JepRiaShowcase" (не обязательный);

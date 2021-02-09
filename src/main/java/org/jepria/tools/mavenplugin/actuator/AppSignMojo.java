@@ -55,7 +55,7 @@ import static org.jepria.tools.mavenplugin.actuator.util.PluginUtil.checkParamet
  * Goal which collects information about the assembly of the application.
  *
  */
-@Mojo( name = "appsign", defaultPhase = LifecyclePhase.PREPARE_PACKAGE, requiresDependencyResolution = ResolutionScope.TEST )
+@Mojo( name = "appsign", defaultPhase = LifecyclePhase.NONE, requiresDependencyResolution = ResolutionScope.TEST )
 public class AppSignMojo extends AbstractMojo
 {
   
@@ -68,7 +68,7 @@ public class AppSignMojo extends AbstractMojo
   /**
    * Mojo input parameter, build configuration.
    */
-  @Parameter( property = "buildConfig", required = true )
+  @Parameter( defaultValue = "debug", property = "buildConfig" )
   private String buildConfig;
 
   /**
